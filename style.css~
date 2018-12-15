@@ -1,0 +1,55 @@
+
+body
+{
+	background-color: black;
+}
+
+div
+{
+	/*border: red 2px solid; */
+}
+
+.route
+{
+	height: 40px;
+}
+
+.decor
+{
+	background-color: darkgray;
+	height: 250px;
+}
+
+#ligne
+{
+	border-bottom: white 2px dashed;
+}
+
+#trait
+{
+	border-right: white 2px dashed;
+}
+
+#feu1
+{
+	display: block;
+	margin-left: auto;
+	margin-top: 35px;
+}
+
+#feu2
+{
+	margin-top: 170px;
+}
+
+#feu3
+{
+	display: block;
+	margin-left: auto;
+}
+
+#feu4
+{
+	margin-top: 15px;
+}
+
