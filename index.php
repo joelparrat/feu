@@ -1,6 +1,7 @@
 <?php session_start(); ?>
 
 <?php if (!isset($_SESSION["swt"])) $_SESSION["swt"] = 0; ?>
+<?php if (!isset($_SESSION["wdg"])) $_SESSION["wdg"] = 0; ?>
 
 <!DOCTYPE html>
 
@@ -20,21 +21,10 @@
 	
 	<body>
 		<?php
-			$fch = "php://input";	// "fichier.json" | "php://input"
+			$fch = "fichier.json";	// "fichier.json" | "php://input"
 			if (!file_exists($fch))
 			{
     			$ett = 0;
-    			if (!$_SESSION["swt"])
-    			{
-    				$feu1 = "j";
-    				$feu2 = " ";
-    			}
-    			else
-    			{
-    				$feu1 = " ";
-    				$feu2 = "j";
-    			}
-    			$_SESSION["swt"] = 1 - $_SESSION["swt"];
     		}
     		else
     		{
@@ -43,24 +33,40 @@
 				if (!is_object($objJSON))
 				{
 					$ett = 0;
-	    			if (!$_SESSION["swt"])
-					{
-						$feu1 = "j";
-						$feu2 = " ";
-					}
-					else
-					{
-						$feu1 = " ";
-						$feu2 = "j";
-					}
-	    			$_SESSION["swt"] = 1 - $_SESSION["swt"];
 				}
 				else
 				{
-					$ett = $objJSON->etat;
-					$feu1 = $objJSON->feu1;
-					$feu2 = $objJSON->feu2;
+					if ((time() - filemtime($fch)) > 40)
+						$_SESSION["wdg"] = 1;
+					else
+						$_SESSION["wdg"] = 0;
+					
+					if ($_SESSION["wdg"])
+					{
+						$ett = 0;
+					}
+					else
+					{
+						$ett = $objJSON->etat;
+						$feu1 = $objJSON->feu1;
+						$feu2 = $objJSON->feu2;
+					}
 				}
+			}
+			
+			if ($ett == 0)
+			{
+				if (!$_SESSION["swt"])
+				{
+					$feu1 = "j";
+					$feu2 = " ";
+				}
+				else
+				{
+					$feu1 = " ";
+					$feu2 = "j";
+				}
+    			$_SESSION["swt"] = 1 - $_SESSION["swt"];
 			}
 		?>
 		<div class="container">
