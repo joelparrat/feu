@@ -47,9 +47,14 @@
 					}
 					else
 					{
-						$ett = 1;
-						$feu1 = $objJSON->feu1;
-						$feu2 = $objJSON->feu2;
+						if (!$objJSON->feu1 || !$objJSON->feu2)
+							$ett = 0;
+						else
+						{
+							$ett = 1;
+							$feu1 = $objJSON->feu1;
+							$feu2 = $objJSON->feu2;
+						}
 					}
 				}
 			}

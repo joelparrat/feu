@@ -8,7 +8,7 @@
 		http_response_code(415);
 		exit();
 	}
-	elseif (!$objJSON->etat || !$objJSON->feu1 || !$objJSON->feu2)
+	elseif (!$objJSON->feu1 || !$objJSON->feu2)
 	{
 		http_response_code(400);
 		exit();
