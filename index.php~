@@ -36,8 +36,6 @@
 				}
 				else
 				{
-					$mss = time() . " / " . filemtime($fch);
-					echo $mss;
 					if ((time() - filemtime($fch)) > 40)
 						$_SESSION["wdg"] = 1;
 					else

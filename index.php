@@ -47,7 +47,7 @@
 					}
 					else
 					{
-						$ett = $objJSON->etat;
+						$ett = 1;
 						$feu1 = $objJSON->feu1;
 						$feu2 = $objJSON->feu2;
 					}
@@ -58,23 +58,23 @@
 			{
 				if (!$_SESSION["swt"])
 				{
-					$feu1 = "j";
-					$feu2 = " ";
+					$feu1 = 2;
+					$feu2 = 0;
 				}
 				else
 				{
-					$feu1 = " ";
-					$feu2 = "j";
+					$feu1 = 0;
+					$feu2 = 2;
 				}
     			$_SESSION["swt"] = 1 - $_SESSION["swt"];
 			}
 		?>
 		<div class="container">
 			<div class="row">
-				<div class="col-5 decor"><img id="feu1" src=<?php if ($feu1=="v") echo "vhvert.jpg"; elseif ($feu1=="j") echo "vhjaune.jpg"; elseif ($feu1=="r") echo "vhrouge.jpg"; else echo "vheteint.jpg";?>  height=200px></div>
+				<div class="col-5 decor"><img id="feu1" src=<?php if ($feu1==4) echo "vhvert.jpg"; elseif ($feu1==2) echo "vhjaune.jpg"; elseif ($feu1==1) echo "vhrouge.jpg"; else echo "vheteint.jpg";?>  height=200px></div>
 				<div class="col-1" id="trait"> </div>
 				<div class="col-1"> </div>
-				<div class="col-5 decor"><img id="feu2" src=<?php if ($feu2=="v") echo "hdvert.jpg"; elseif ($feu2=="j") echo "hdjaune.jpg"; elseif ($feu2=="r") echo "hdrouge.jpg"; else echo "hdeteint.jpg";?>  width=200px></div>
+				<div class="col-5 decor"><img id="feu2" src=<?php if ($feu2==4) echo "hdvert.jpg"; elseif ($feu2==2) echo "hdjaune.jpg"; elseif ($feu2==1) echo "hdrouge.jpg"; else echo "hdeteint.jpg";?>  width=200px></div>
 			</div>
 			<div class="row">
 				<div class="col-12 route" id="ligne"> </div>
@@ -83,10 +83,10 @@
 				<div class="col-12 route"> </div>
 			</div>
 			<div class="row">
-				<div class="col-5 decor"><img id="feu3" src=<?php if ($feu2=="v") echo "hgvert.jpg"; elseif ($feu2=="j") echo "hgjaune.jpg"; elseif ($feu2=="r") echo "hgrouge.jpg"; else echo "hgeteint.jpg";?>  width=200px></div>
+				<div class="col-5 decor"><img id="feu3" src=<?php if ($feu2==4) echo "hgvert.jpg"; elseif ($feu2==2) echo "hgjaune.jpg"; elseif ($feu2==1) echo "hgrouge.jpg"; else echo "hgeteint.jpg";?>  width=200px></div>
 				<div class="col-1" id="trait"> </div>
 				<div class="col-1"> </div>
-				<div class="col-5 decor"><img id="feu4" src=<?php if ($feu1=="v") echo "vbvert.jpg"; elseif ($feu1=="j") echo "vbjaune.jpg"; elseif ($feu1=="r") echo "vbrouge.jpg"; else echo "vbeteint.jpg";?>  height=200px></div>
+				<div class="col-5 decor"><img id="feu4" src=<?php if ($feu1==4) echo "vbvert.jpg"; elseif ($feu1==2) echo "vbjaune.jpg"; elseif ($feu1==1) echo "vbrouge.jpg"; else echo "vbeteint.jpg";?>  height=200px></div>
 			</div>
 		</div>
 		<!-- bootstrap -->
