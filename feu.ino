@@ -106,8 +106,8 @@ void setup()
 	
 	Serial.println();
 	Serial.print("Connexion wifi ");
-	//WiFi.begin("Archos 50f Helium", "12345678");
-	WiFi.begin("SFR_7260", "ooteranaff4eummandin");
+	//WiFi.begin("Archos***", "*****");
+	WiFi.begin("SFR_***", "*****");
 	while (WiFi.status() != WL_CONNECTED)
 	{
 		Serial.print(".");
